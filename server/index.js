@@ -255,12 +255,18 @@ const path = require('path');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://Saravana:saravana%403128@cluster0.5mlofsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 5000,
 });
+mongoose.connection.on('connected', () => {
+  console.log('✅ MongoDB connected successfully');
+});
 
+mongoose.connection.on('error', (err) => {
+  console.error('❌ MongoDB connection error:', err);
+});
 const User = mongoose.model('User', {
   name: String,
   email: String,
@@ -319,9 +325,20 @@ app.use(
 app.set('trust proxy', 1);
 
 
+app.use(session({
+  secret: 'mysecret',
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+  cookie: {
+    secure: true,
+    sameSite: 'none'
+  }
+}));
+
 // CORS
 app.use(cors({
-  origin: true, // In local dev. When deployed, update as needed.
+  origin: 'https://bidbank.onrender.com', // In local dev. When deployed, update as needed.
   credentials: true,
 }));
 

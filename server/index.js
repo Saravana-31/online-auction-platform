@@ -252,7 +252,7 @@ const cors = require('cors');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const MongoStore = require('connect-mongo');
 const app = express();
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -313,15 +313,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 
 // Session
-app.use(
-  session({
-    secret: 'mysecret',
-    resave: false,
-    saveUninitialized: true,
-    
-    cookie: { secure: true },
-  })
-);
+
 app.set('trust proxy', 1);
 
 

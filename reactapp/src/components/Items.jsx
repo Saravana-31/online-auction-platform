@@ -18,7 +18,7 @@ export default function Items(){
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(()=>{
-    fetch('http://localhost:5000/get-items')
+    fetch('/get-items')
     .then((res)=> res.json())
     .then((data)=>{
       if(data.success){
@@ -69,7 +69,7 @@ export default function Items(){
   };
 
   const handlePlaceBid = (itemId, amount) => {
-    fetch(`http://localhost:5000/place-bid/${itemId}`, {
+    fetch(`/place-bid/${itemId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ export default function Items(){
         {filteredItems.map((item)=>(
           <div key={item._id} className="items_akela_cont" onClick={() => handleItemClick(item)}>
             <div className="item_imgg">
-              <img src={`http://localhost:5000/${item.imagePath}`}alt="" />
+              <img src={`/${item.imagePath}`}alt="" />
             </div>
             <div className="item_des">
               <div className="samay">

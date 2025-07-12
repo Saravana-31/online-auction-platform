@@ -20,7 +20,7 @@ const ItemModal = ({ item, onClose,onPlaceBid }) => {
       <div className="modal-content">
         <span className="close" onClick={onClose}>&times;</span>
         <h1>{item.name}</h1>
-        <img src={`http://localhost:5000/${item.imagePath}`} alt="" />
+        <img src={`/${item.imagePath}`} alt="" />
         <h3>{item.description}</h3>
         <h4>Starting Price: <span >${item.startingPrice}</span></h4>
         <h4>End Date: {new Date(item.endDate).toLocaleDateString("en-GB")}</h4>

@@ -4,7 +4,7 @@ function Messages() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/get-messages', {
+    fetch('/get-messages', {
       credentials: 'include'
     })
     .then((res) => res.json())

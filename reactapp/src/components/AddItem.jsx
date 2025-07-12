@@ -41,7 +41,7 @@ function AddItem({loggedInUser}){
     formDataToSend.append('endDate', formData.endDate);
     formDataToSend.append('itemImage', formData.itemImage);
 
-    const response = await fetch('http://localhost:5000/add-item', {
+    const response = await fetch('/add-item', {
       method: 'POST',
       body: formDataToSend,
       credentials: 'include' // Include credentials

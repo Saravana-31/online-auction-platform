@@ -312,13 +312,16 @@ app.use(
     secret: 'mysecret',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    
+    cookie: { secure: true },
   })
 );
+app.set('trust proxy', 1);
+
 
 // CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // In local dev. When deployed, update as needed.
+  origin: true, // In local dev. When deployed, update as needed.
   credentials: true,
 }));
 

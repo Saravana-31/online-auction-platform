@@ -252,15 +252,21 @@ const cors = require('cors');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const MongoStore = require('connect-mongo');
 const app = express();
 
-mongoose.connect('mongodb+srv://Saravana:saravana%403128@cluster0.5mlofsi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   serverSelectionTimeoutMS: 5000,
 });
+mongoose.connection.on('connected', () => {
+  console.log('✅ MongoDB connected successfully');
+});
 
+mongoose.connection.on('error', (err) => {
+  console.error('❌ MongoDB connection error:', err);
+});
 const User = mongoose.model('User', {
   name: String,
   email: String,
@@ -307,18 +313,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/uploads', express.static('uploads'));
 
 // Session
-app.use(
-  session({
-    secret: 'mysecret',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false },
-  })
-);
+
+app.set('trust proxy', 1);
+
+
+app.use(session({
+  secret: 'mysecret',
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
+  cookie: {
+    secure: true,
+    sameSite: 'none'
+  }
+}));
 
 // CORS
 app.use(cors({
-  origin: 'http://localhost:3000', // In local dev. When deployed, update as needed.
+  origin: 'https://bidbank.onrender.com', // In local dev. When deployed, update as needed.
   credentials: true,
 }));
 
@@ -451,11 +463,12 @@ app.get('/get-messages', async (req, res) => {
 });
 
 // ---------- Serve React build files ----------
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, '../reactapp/build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../reactapp/build', 'index.html'));
 });
+
 
 // ---------- Start server ----------
 const PORT = process.env.PORT || 5000;

@@ -7,10 +7,8 @@ BidBank is a modern web-based auction platform built with the **MERN stack** (Mo
 
 ## 🔗 Live Demo
 
-🌍 Frontend (React): [https://your-frontend.vercel.app](https://your-frontend.vercel.app)  
-🚀 Backend (Express): [https://your-backend.onrender.com](https://your-backend.onrender.com)
+Demo Deployed on render: [https://bidbank.onrender.com](https://bidbank.onrender.com)
 
-> Replace the links above with your actual deployed URLs.
 
 ---
 

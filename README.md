@@ -1,68 +1,85 @@
-# auction_website
 # 🏦 BidBank - Online Auction Platform
 
-BidBank is a modern web-based auction platform built with the **MERN stack** (MongoDB, Express, React, Node.js). It allows users to register, log in, post items for auction, and participate in live bidding events.
+**BidBank** is a modern **MERN stack** auction platform that enables users to post items for auction and participate in **real-time bidding** events.  
+It is designed with a **scalable architecture**, responsive UI, and secure authentication system.  
+
+🔗 **Live Demo:** [BidBank on Render](https://bidbank.onrender.com)  
+📂 **GitHub Repository:** [Online Auction Platform](https://github.com/Saravana-31/Online-Auction-Platform)  
 
 ---
 
-## 🔗 Live Demo
-
-Demo Deployed on render: [https://bidbank.onrender.com](https://bidbank.onrender.com)
-
-
----
-
-## 🧰 Tech Stack
-
-- **Frontend:** React.js, HTML5, CSS3
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB Atlas
-- **Deployment:** Vercel (frontend), Render (backend)
+## 🚀 Features
+- 👤 **User Authentication** – Secure registration & login.  
+- 🧑‍⚖️ **Role-Based Dashboard** – Separate buyer & seller interfaces.  
+- 📦 **Auction Management** – Post, edit, and delete listings.  
+- ⏳ **Real-Time Bidding** – Live countdown timers & automatic updates.  
+- 📈 **Bid Tracking** – Instant updates for competitive bidding.  
+- 🎨 **Responsive Design** – Works across devices.  
 
 ---
 
-## 🎯 Features
-
-- 👤 User registration & login
-- 🧑‍⚖️ Role-based dashboard (buyer/seller)
-- 📦 Post & manage auction listings
-- ⏳ Real-time bidding interface with countdowns
-- 📈 Automatic bid updates
-- 🎨 Responsive UI
+## 🛠 Tech Stack
+**Frontend:** React.js, HTML5, CSS3  
+**Backend:** Node.js, Express.js  
+**Database:** MongoDB Atlas  
+**Deployment:** Vercel (Frontend), Render (Backend)  
 
 ---
 
-## 📁 Folder Structure
-
+## 📂 Project Structure
+```
 Online-Auction-Platform/
-│
-├── reactapp/ # Frontend React App
-│ ├── public/
-│ ├── src/
-│ └── package.json
-│
-├── server/ # Backend Node/Express App
-│ ├── routes/
-│ ├── controllers/
-│ ├── models/
-│ ├── .env
-│ └── package.json
-│
+│── reactapp/           # Frontend
+│   ├── public/
+│   ├── src/
+│   └── package.json
+│── server/             # Backend
+│   ├── routes/
+│   ├── controllers/
+│   ├── models/
+│   ├── .env
+│   └── package.json
 └── README.md
+```
 
 ---
 
-## ⚙️ Installation (Local Setup)
+## ⚙️ Installation & Setup
+**Prerequisites:**  
+- Node.js & npm  
+- MongoDB Atlas or Local MongoDB  
 
-### 🧾 Prerequisites
-
-- Node.js & npm installed
-- MongoDB running locally or MongoDB Atlas account
-
----
-
-### 📦 Clone the Repository
-
+**Steps:**  
 ```bash
+# Clone repository
 git clone https://github.com/Saravana-31/Online-Auction-Platform.git
 cd Online-Auction-Platform
+
+# Install frontend dependencies
+cd reactapp
+npm install
+
+# Install backend dependencies
+cd ../server
+npm install
+
+# Run backend
+npm start
+
+# Run frontend (in a separate terminal)
+npm start
+```
+
+---
+
+## 📸 Screenshots
+ `bb1.png`
+ `bb3.png`
+ `bb3.png`
+ `bb4.png`
+ 
+
+## 💡 Why This Project Stands Out
+- **Full-Stack Expertise** – Showcases complete end-to-end web application development.  
+- **Real-World Problem Solving** – Enables seamless online auctions with live updates.  
+- **Cloud Deployment** – Fully functional and live for demonstration.  

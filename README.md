@@ -73,10 +73,20 @@ npm start
 ---
 
 ## 📸 Screenshots
- `bb1.png`
- `bb3.png`
- `bb3.png`
- `bb4.png`
+
+### Home Page
+![Home Page](bb1.png)
+
+### About page
+![About Page](bb2.png)
+
+### Bidding Interface
+![Bidding Interface](bb3.png)
+
+
+### Add Bid
+![Add Bid](bb4.png)
+
  
 
 ## 💡 Why This Project Stands Out
